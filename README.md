@@ -14,5 +14,9 @@ Result: The contents on disk A are copied to B, but you have to manually make su
 # Run
 ```go run index.go <diskA> <diskB>```
 
+# Build
+Use [XGO](https://github.com/karalabe/xgo) to build to any platform without issues.
+```xgo -go 1.8.3 --targets=windows/* -out indexer github.com/Caspervw/DiskCopy```
+
 # Code-quality
 Don't expect to much, this is a tool to quickly get my files of my "broken" disk.
