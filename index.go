@@ -35,11 +35,15 @@ func main() {
 	getFilesFromFolder(false, diskB)
 
 	fmt.Println("--- FINISHED INDEXING ---")
+	fmt.Println("--- STARTING COPY ---")
 
 	files := findMissingFiles()
 	copyFiles(dest, files)
 
 	db.Close()
+
+	fmt.Println("--- FINISHED ---")
+
 }
 
 func bootDatabase() {
@@ -165,7 +169,16 @@ func copyFiles(dir string, files []string) {
 		log.Fatal("COPY INIT: Could not create copy-directory")
 	}
 
+	lengthFiles := len(files)
+	count := 0
 	for _, file := range files {
+		count++
+		percentage := int((count / lengthFiles) * 100)
+
+		if percentage%2 == 0 {
+			fmt.Println(fmt.Sprintf("%d%%", percentage))
+		}
+
 		err = copyFile(file, dir+file)
 
 		if err != nil {
