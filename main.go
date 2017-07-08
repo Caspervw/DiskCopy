@@ -190,7 +190,9 @@ func copyFiles(dir string, files []string) {
 func copyFile(src string, dst string) (err error) {
 	//Create output dir
 	dir := filepath.Dir(dst)
-	os.MkdirAll(dir, os.ModePerm)
+	err = os.MkdirAll(dir, os.ModePerm)
+	fmt.Println(err)
+	fmt.Println("from: " + src + " to " + dst)
 
 	//Do the copy
 	in, err := os.Open(src)
