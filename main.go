@@ -8,7 +8,6 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"strings"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -180,7 +179,7 @@ func copyFiles(dir string, files []string) {
 			fmt.Println(fmt.Sprintf("%d%%", percentage))
 		}
 
-		err = copyFile(file, strings.Replace(dir+file, ":\\", "", -1)) //Windows does not like ex. C:\ in the path as new folder, so hack it away
+		err = copyFile(file, dir+file) //Windows does not like ex. C:\ in the path as new folder, so hack it away
 
 		if err != nil {
 			redoLog("copy", file)
