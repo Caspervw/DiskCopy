@@ -183,6 +183,7 @@ func copyFiles(dir string, files []string) {
 
 		if err != nil {
 			redoLog("copy", file)
+			fmt.Println(err)
 		}
 	}
 }
@@ -221,6 +222,6 @@ func copyFile(src string, dst string) (err error) {
 //Dirty function to write the filepaths that crashedd to a file for after-processing
 func redoLog(tag string, path string) {
 	f, _ := os.OpenFile(tag+".txt", os.O_APPEND|os.O_WRONLY, os.ModeAppend)
-	f.WriteString(path + "\n")
+	f.WriteString(path + "\r\n") //Window line endings, since we're running on that os for the backup
 	f.Close()
 }
