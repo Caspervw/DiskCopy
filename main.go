@@ -22,9 +22,9 @@ var db *sql.DB
 
 func main() {
 	//init
-	os.Remove(diskIndexDB)
-	os.Create("indexer.txt")
-	os.Create("copy.txt")
+	// os.Remove(diskIndexDB)
+	// os.Create("indexer.txt")
+	// os.Create("copy.txt")
 
 	bootDatabase()
 
