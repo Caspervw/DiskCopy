@@ -56,17 +56,17 @@ func bootDatabase() {
 		log.Fatal("Could not create the SQLite database", err)
 	}
 
-	_, err = db.Exec(`
-	CREATE TABLE file (
-		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		origin BOOLEAN,
-		hash VARCHAR(64),
-        path VARCHAR(2048)
-    );`)
+	// _, err = db.Exec(`
+	// CREATE TABLE file (
+	// 	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	// 	origin BOOLEAN,
+	// 	hash VARCHAR(64),
+	//     path VARCHAR(2048)
+	// );`)
 
-	if err != nil {
-		log.Fatal("DB-TABLE CREATE: fail ", err)
-	}
+	// if err != nil {
+	// 	log.Fatal("DB-TABLE CREATE: fail ", err)
+	// }
 }
 
 func insertFile(origin bool, filePath string) {
