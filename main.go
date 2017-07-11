@@ -29,11 +29,11 @@ func main() {
 	bootDatabase()
 
 	// diskA := os.Args[1]
-	diskB := os.Args[2]
+	// diskB := os.Args[2]
 	dest := os.Args[3]
 
 	// getFilesFromFolder(true, diskA)
-	getFilesFromFolder(false, diskB)
+	// getFilesFromFolder(false, diskB)
 
 	fmt.Println("--- FINISHED INDEXING ---")
 	fmt.Println("--- STARTING COPY ---")
